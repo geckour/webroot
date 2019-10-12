@@ -41,7 +41,7 @@ a {
 
     .items {
         position: absolute;
-        bottom: calc(2em + (40% - 2em) / 2);
+        bottom: calc(2em + (40vh - 2em) / 2);
         width: 100%;
         height: auto;
         display: flex;
@@ -51,7 +51,7 @@ a {
     }
 
     .item {
-        margin: 0 3em;
+        margin: 0 6vh;
         width: 0;
         height: 0;
         animation: item-anim 0.4s ease 0.2s 1;
@@ -64,17 +64,17 @@ a {
         }
 
         100% {
-            bottom: 40%;
+            bottom: 40vh;
         }
     }
 
     @keyframes footer-anim {
         4% {
-            top: calc(100% - 2em);
+            top: calc(100vh - 2em);
         }
 
         100% {
-            top: calc(100% - 2em);
+            top: calc(100vh - 2em);
         }
     }
 
@@ -85,24 +85,29 @@ a {
         }
 
         100% {
-            width: 10em;
-            height: 10em;
+            width: 14vh;
+            height: 14vh;
         }
     }
 }
 
 @media (orientation: portrait) {
     .droid {
-        height: 100%;
+        width: 100%;
         position: absolute;
         bottom: 0;
-        left: 0;
         animation: droid-anim 0.4s ease 0.2s 1;
         animation-fill-mode: forwards;
     }
 
     .footer {
-        display: none;
+        background-color: #3DDC84;
+        width: 100%;
+        height: 35vh;
+        position: absolute;
+        top: 100%;
+        animation: footer-anim 0.4s ease 0.2s 1;
+        animation-fill-mode: forwards;
     }
 
     .footer-txt {
@@ -116,41 +121,55 @@ a {
     }
 
     .items {
+        display: flex;
         position: absolute;
-        bottom: 50%;
+        bottom: 50vh;
         width: 100%;
         height: auto;
-        display: flex;
         justify-content: center;
         align-items: center;
         transform: translate(0, 50%);
     }
 
     .item {
-        margin: 0 2vh;
+        margin: 0 3vw;
         width: 0;
         height: 0;
+        max-width: 24vh;
+        max-height: 24vh;
         animation: item-anim 0.4s ease 0.2s 1;
         animation-fill-mode: forwards;
     }
 
     @keyframes droid-anim {
+        10% {
+            bottom: 35vh;
+        }
+
         100% {
-            height: 400%;
-            bottom: -81vh;
-            left: calc(50vw - 192.2vh);
+            bottom: 65vh;
+        }
+    }
+
+    @keyframes footer-anim {
+        10% {
+            top: 65vh;
+        }
+
+        100% {
+            top: 65vh;
         }
     }
 
     @keyframes item-anim {
-        4% {
+        10% {
             width: 0;
             height: 0;
         }
 
         100% {
-            width: 12vh;
-            height: 12vh;
+            width: 16vw;
+            height: 16vw;
         }
     }
 }
