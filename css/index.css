@@ -59,7 +59,7 @@ a {
     }
 
     @keyframes droid-anim {
-        4% {
+        70% {
             bottom: 2em;
         }
 
@@ -69,7 +69,7 @@ a {
     }
 
     @keyframes footer-anim {
-        4% {
+        70% {
             top: calc(100% - 2em);
         }
 
@@ -79,7 +79,7 @@ a {
     }
 
     @keyframes item-anim {
-        4% {
+        70% {
             width: 0;
             height: 0;
         }
@@ -93,9 +93,11 @@ a {
 
 @media (orientation: portrait) {
     .droid {
+        margin: auto;
         width: 100%;
         position: absolute;
         bottom: 0;
+        left: 0;
         animation: droid-anim 0.4s ease 0.2s 1;
         animation-fill-mode: forwards;
     }
@@ -142,17 +144,19 @@ a {
     }
 
     @keyframes droid-anim {
-        10% {
+        90% {
             bottom: 35%;
         }
 
         100% {
+            width: 160%;
+            left: -30%;
             bottom: 65%;
         }
     }
 
     @keyframes footer-anim {
-        10% {
+        90% {
             top: 65%;
         }
 
@@ -162,7 +166,7 @@ a {
     }
 
     @keyframes item-anim {
-        10% {
+        90% {
             width: 0;
             height: 0;
         }
