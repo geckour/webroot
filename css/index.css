@@ -12,6 +12,12 @@ body, .wrapper {
 
 a {
     color: #57C4EB;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .item {
