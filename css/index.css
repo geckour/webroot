@@ -55,16 +55,6 @@ a {
   animation-fill-mode: forwards;
 }
 
-#change-bg-color {
-  width: 20px;
-  height: 20px;
-  position: relative;
-  overflow: hidden;
-  top: 8px;
-  left: calc(100% - 28px);
-  border-radius: 20%;
-}
-
 @keyframes ripple-on-anim {
   from {
     opacity: 1;
@@ -108,6 +98,18 @@ a {
     position: absolute;
     bottom: 0;
     animation: droid-anim 0.4s ease 0.2s 1;
+    animation-fill-mode: forwards;
+  }
+
+  #change-bg-color {
+    width: 0;
+    height: 0;
+    position: absolute;
+    overflow: hidden;
+    bottom: 0.5em;
+    right: 0.5em;
+    border-radius: 20%;
+    animation: change-bg-anim 0.4s ease 0.2s 1;
     animation-fill-mode: forwards;
   }
 
@@ -159,6 +161,20 @@ a {
     }
   }
 
+  @keyframes change-bg-anim {
+    70% {
+      bottom: 2.5em;
+      width: 0;
+      height: 0;
+    }
+
+    100% {
+      bottom: 2.5em;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
   @keyframes footer-anim {
     70% {
       top: calc(100% - 2em);
@@ -190,6 +206,18 @@ a {
     bottom: 0;
     left: 0;
     animation: droid-anim 0.4s ease 0.2s 1;
+    animation-fill-mode: forwards;
+  }
+
+  #change-bg-color {
+    width: 0;
+    height: 0;
+    position: absolute;
+    overflow: hidden;
+    bottom: 0.5em;
+    right: 0.5em;
+    border-radius: 20%;
+    animation: change-bg-anim 0.4s ease 0.2s 1;
     animation-fill-mode: forwards;
   }
 
@@ -242,6 +270,20 @@ a {
       width: 160%;
       left: -30%;
       bottom: 65%;
+    }
+  }
+
+  @keyframes change-bg-anim {
+    70% {
+      bottom: calc(35% + 0.5em);
+      width: 0;
+      height: 0;
+    }
+
+    100% {
+      bottom: calc(35% + 0.5em);
+      width: 20px;
+      height: 20px;
     }
   }
 
