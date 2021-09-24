@@ -60,25 +60,25 @@ window.onload = function () {
         })
     })
 
-    const config = {
-        apiKey: "AIzaSyBKlzmlMPIEWhgGyN_hG_Wmqhor13aIJek",
-        authDomain: "geckour-web-top.firebaseapp.com",
-        databaseURL: "https://geckour-web-top.firebaseio.com",
-        projectId: "geckour-web-top",
-        storageBucket: "geckour-web-top.appspot.com",
-        messagingSenderId: "964850818339",
-        appId: "1:964850818339:web:06fcb8cfc7f10314a94096",
-        measurementId: "G-50P7DCTYEF"
-    }
-    firebase.initializeApp(config)
-    const database = firebase.database()
-
-    database.ref('background/color').on("value", (snapshot) => {
-        const data = snapshot.val()
-        changeColors(document, data)
-    })
-
     if (storageAvailable('localStorage')) {
+        const config = {
+            apiKey: "AIzaSyBKlzmlMPIEWhgGyN_hG_Wmqhor13aIJek",
+            authDomain: "geckour-web-top.firebaseapp.com",
+            databaseURL: "https://geckour-web-top.firebaseio.com",
+            projectId: "geckour-web-top",
+            storageBucket: "geckour-web-top.appspot.com",
+            messagingSenderId: "964850818339",
+            appId: "1:964850818339:web:06fcb8cfc7f10314a94096",
+            measurementId: "G-50P7DCTYEF"
+        }
+        firebase.initializeApp(config)
+        const database = firebase.database()
+    
+        database.ref('background/color').on("value", (snapshot) => {
+            const data = snapshot.val()
+            changeColors(document, data)
+        })
+
         if (!localStorage.id) localStorage.id = generateUuid()
         if (localStorage.backgroundColor) changeColors(document, localStorage.backgroundColor)
         const today = new Date().toDateString()
@@ -89,6 +89,18 @@ window.onload = function () {
         changeBgColorElem.style.backgroundColor = color
         changeBgColorElem.onclick = function() {
             changeColors(document)
+            const max = Math.max(document.body.clientWidth, document.body.clientHeight)
+            const scale = max / 10
+            document.getElementById("change-bg-color").animate([
+                {
+                    transform: "scale(1)",
+                    borderRadius: "20%"
+                },
+                {
+                    transform: `scale(${scale})`,
+                    borderRadius: `${max}px`
+                }
+            ], 500)
             database.ref('background').update({
                 color: color
             })
@@ -97,10 +109,18 @@ window.onload = function () {
 }
 
 function changeColors(document, color) {
+    const currentColor = document.body.style.backgroundColor
     if (storageAvailable('localStorage')) {
         localStorage.backgroundColor = color
     }
-    document.body.style.backgroundColor = color
+    document.body.animate([
+        { backgroundColor: currentColor },
+        { backgroundColor: color }
+    ], {
+        duration: 500,
+        fill: "forwards"
+    })
+    // document.body.style.backgroundColor = color
     document.getElementsByClassName("footer-txt")[0].style.color = color
 }
 
