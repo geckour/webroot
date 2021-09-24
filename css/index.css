@@ -62,6 +62,7 @@ a {
   overflow: hidden;
   top: 8px;
   left: calc(100% - 28px);
+  border-radius: 20%;
 }
 
 @keyframes ripple-on-anim {
