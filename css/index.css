@@ -55,6 +55,15 @@ a {
   animation-fill-mode: forwards;
 }
 
+#change-bg-color {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  overflow: hidden;
+  top: 8px;
+  left: calc(100% - 28px);
+}
+
 @keyframes ripple-on-anim {
   from {
     opacity: 1;

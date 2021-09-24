@@ -6,7 +6,9 @@
     <title>Index of geckour</title>
     <link rel="shortcut icon" href="./img/favicon.ico" />
     <link rel="stylesheet" href="./css/index.css" type="text/css" />
-    <script type="text/javascript" src="./js/index.js"></script>
+    <script src="./node_modules/firebase/firebase-app.js"></script>
+    <script src="./node_modules/firebase/firebase-database.js"></script>
+    <script type="module" src="./src/index.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -36,6 +38,7 @@
             Android ロボットは、Google が作成および提供している作品から複製または変更したものであり、<br />
             <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">クリエイティブ・コモンズ</a>表示 3.0 ライセンスに記載された条件に従って使用しています。
         </p>
+        <div id="change-bg-color"></div>
     </div>
 </body>
 </html>
