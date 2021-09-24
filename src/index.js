@@ -89,8 +89,8 @@ window.onload = function () {
         changeBgColorElem.style.backgroundColor = color
         changeBgColorElem.onclick = function() {
             changeColors(document)
-            const max = Math.max(document.body.clientWidth, document.body.clientHeight)
-            const scale = max / 10
+            const radius = Math.sqrt(Math.pow(changeBgColorElem.offsetLeft + 10, 2) + Math.pow(changeBgColorElem.offsetTop + 10, 2))
+            const scale = radius / 10
             document.getElementById("change-bg-color").animate([
                 {
                     transform: "scale(1)",
@@ -98,7 +98,7 @@ window.onload = function () {
                 },
                 {
                     transform: `scale(${scale})`,
-                    borderRadius: `${max}px`
+                    borderRadius: `${radius}px`
                 }
             ], 500)
             database.ref('background').update({
