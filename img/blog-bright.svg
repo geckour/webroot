@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="51px" viewBox="0 0 46 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.6">
+        <g id="blog" transform="translate(-7.000000, -2.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M47.5,7.5 L37.05,7.5 C36,4.6 33.25,2.5 30,2.5 C26.75,2.5 24,4.6 22.95,7.5 L12.5,7.5 C9.75,7.5 7.5,9.75 7.5,12.5 L7.5,47.5 C7.5,50.25 9.75,52.5 12.5,52.5 L47.5,52.5 C50.25,52.5 52.5,50.25 52.5,47.5 L52.5,12.5 C52.5,9.75 50.25,7.5 47.5,7.5 Z M30,7.5 C31.375,7.5 32.5,8.625 32.5,10 C32.5,11.375 31.375,12.5 30,12.5 C28.625,12.5 27.5,11.375 27.5,10 C27.5,8.625 28.625,7.5 30,7.5 Z M35,42.5 L17.5,42.5 L17.5,37.5 L35,37.5 L35,42.5 Z M42.5,32.5 L17.5,32.5 L17.5,27.5 L42.5,27.5 L42.5,32.5 Z M42.5,22.5 L17.5,22.5 L17.5,17.5 L42.5,17.5 L42.5,22.5 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

@@ -34,6 +34,8 @@ a {
   height: 100%;
   top: 0;
   left: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .ripple {
@@ -80,6 +82,18 @@ a {
   .footer-txt {
     color: #334246;
   }
+
+  #github {
+    background-image: url("../img/GitHub-bright.svg");
+  }
+
+  #blog {
+    background-image: url("../img/blog-bright.svg");
+  }
+
+  #twitter {
+    background-image: url("../img/Twitter-bright.svg");
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -89,6 +103,18 @@ a {
 
   .footer-txt {
     color: #ffffff;
+  }
+
+  #github {
+    background-image: url("../img/GitHub-dark.svg");
+  }
+
+  #blog {
+    background-image: url("../img/blog-dark.svg");
+  }
+
+  #twitter {
+    background-image: url("../img/Twitter-dark.svg");
   }
 }
 

@@ -2,8 +2,8 @@ import { Random } from './random.js'
 
 window.onload = function () {
     Array.prototype.forEach.call(document.getElementsByClassName("item"), function (element) {
-        var classList = element.getElementsByClassName("ripple")[0].classList
-        var onDown = false
+        const classList = element.getElementsByClassName("ripple")[0].classList
+        let onDown = false
 
         element.addEventListener('pointerdown', function () {
             onDown = true
@@ -88,10 +88,10 @@ window.onload = function () {
         const changeBgColorElem = document.getElementById("change-bg-color")
         changeBgColorElem.style.backgroundColor = color
         changeBgColorElem.onclick = function() {
-            changeColors(document)
+            changeColors(document, color)
             const radius = Math.sqrt(Math.pow(changeBgColorElem.offsetLeft + 10, 2) + Math.pow(changeBgColorElem.offsetTop + 10, 2))
             const scale = radius / 10
-            document.getElementById("change-bg-color").animate([
+            changeBgColorElem.animate([
                 {
                     transform: "scale(1)",
                     borderRadius: "20%"
@@ -109,7 +109,7 @@ window.onload = function () {
 }
 
 function changeColors(document, color) {
-    const currentColor = document.body.style.backgroundColor
+    const currentColor = getComputedStyle(document.body).backgroundColor
     if (storageAvailable('localStorage')) {
         localStorage.backgroundColor = color
     }
@@ -120,8 +120,68 @@ function changeColors(document, color) {
         duration: 500,
         fill: "forwards"
     })
-    // document.body.style.backgroundColor = color
-    document.getElementsByClassName("footer-txt")[0].style.color = color
+
+    document.getElementsByClassName("footer-txt")[0].animate([
+        { color: currentColor },
+        { color: color }
+    ], {
+        duration: 500,
+        fill: "forwards"
+    })
+
+    const currentIconTint = getIconTint(currentColor)
+    const iconTint = getIconTint(color)
+
+    let currentGithubIcon
+    let currentBlogIcon
+    let currentTwitterIcon
+    let githubIcon
+    let blogIcon
+    let twitterIcon
+
+    if (currentIconTint > 0) {
+        currentGithubIcon = "../img/GitHub-bright.svg"
+        currentBlogIcon = "../img/blog-bright.svg"
+        currentTwitterIcon = "../img/Twitter-bright.svg"
+    } else {
+        currentGithubIcon = "../img/GitHub-dark.svg"
+        currentBlogIcon = "../img/blog-dark.svg"
+        currentTwitterIcon = "../img/Twitter-dark.svg"
+    }
+
+    if (iconTint > 0) {
+        githubIcon = "../img/GitHub-bright.svg"
+        blogIcon = "../img/blog-bright.svg"
+        twitterIcon = "../img/Twitter-bright.svg"
+    } else {
+        githubIcon = "../img/GitHub-dark.svg"
+        blogIcon = "../img/blog-dark.svg"
+        twitterIcon = "../img/Twitter-dark.svg"
+    }
+
+    document.getElementById("github").animate([
+        { backgroundImage: `url(${currentGithubIcon})` },
+        { backgroundImage: `url(${githubIcon})` },
+    ], {
+        duration: 500,
+        fill: "forwards"
+    })
+
+    document.getElementById("blog").animate([
+        { backgroundImage: `url(${currentBlogIcon})` },
+        { backgroundImage: `url(${blogIcon})` },
+    ], {
+        duration: 500,
+        fill: "forwards"
+    })
+
+    document.getElementById("twitter").animate([
+        { backgroundImage: `url(${currentTwitterIcon})` },
+        { backgroundImage: `url(${twitterIcon})` },
+    ], {
+        duration: 500,
+        fill: "forwards"
+    })
 }
 
 function storageAvailable(type) {
@@ -172,6 +232,19 @@ function getColor(seed) {
     const b = random.nextInt(0, 255)
     
     return `rgb(${r}, ${g}, ${b})`
+}
+
+function getIconTint(backgroundColor) {
+    const regex = /rgb\((.+),\s?(.+),\s?(.+)\)/i
+    const r = Number(backgroundColor.replace(regex, "$1"))
+    const g = Number(backgroundColor.replace(regex, "$2"))
+    const b = Number(backgroundColor.replace(regex, "$3"))
+
+    if (r + g + b > 384) {
+        return -1
+    } else {
+        return 1
+    }
 }
 
 String.prototype.hashCode = function(){
