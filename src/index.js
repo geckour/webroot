@@ -1,4 +1,4 @@
-import { Random } from './random.js'
+import {Random} from './random.js'
 
 window.onload = function () {
     Array.prototype.forEach.call(document.getElementsByClassName("item"), function (element) {
@@ -73,7 +73,7 @@ window.onload = function () {
         }
         firebase.initializeApp(config)
         const database = firebase.database()
-    
+
         database.ref('background/color').on("value", (snapshot) => {
             const data = snapshot.val()
             changeColors(document, data)
@@ -87,7 +87,7 @@ window.onload = function () {
 
         const changeBgColorElem = document.getElementById("change-bg-color")
         changeBgColorElem.style.backgroundColor = color
-        changeBgColorElem.onclick = function() {
+        changeBgColorElem.onclick = function () {
             changeColors(document, color)
             const radius = Math.sqrt(Math.pow(changeBgColorElem.offsetLeft + 10, 2) + Math.pow(changeBgColorElem.offsetTop + 10, 2))
             const scale = radius / 10
@@ -114,18 +114,18 @@ function changeColors(document, color) {
         localStorage.backgroundColor = color
     }
     document.body.animate([
-        { backgroundColor: currentColor },
-        { backgroundColor: color }
+        {backgroundColor: currentColor},
+        {backgroundColor: color}
     ], {
         duration: 500,
         fill: "forwards"
     })
 
     document.getElementsByClassName("footer-txt")[0].animate([
-        { color: currentColor },
-        { color: color }
+        {color: currentColor},
+        {color: color}
     ], {
-        duration: 500,
+        duration: 200,
         fill: "forwards"
     })
 
@@ -160,24 +160,24 @@ function changeColors(document, color) {
     }
 
     document.getElementById("github").animate([
-        { backgroundImage: `url(${currentGithubIcon})` },
-        { backgroundImage: `url(${githubIcon})` },
+        {backgroundImage: `url(${currentGithubIcon})`},
+        {backgroundImage: `url(${githubIcon})`},
     ], {
         duration: 500,
         fill: "forwards"
     })
 
     document.getElementById("blog").animate([
-        { backgroundImage: `url(${currentBlogIcon})` },
-        { backgroundImage: `url(${blogIcon})` },
+        {backgroundImage: `url(${currentBlogIcon})`},
+        {backgroundImage: `url(${blogIcon})`},
     ], {
         duration: 500,
         fill: "forwards"
     })
 
     document.getElementById("twitter").animate([
-        { backgroundImage: `url(${currentTwitterIcon})` },
-        { backgroundImage: `url(${twitterIcon})` },
+        {backgroundImage: `url(${currentTwitterIcon})`},
+        {backgroundImage: `url(${twitterIcon})`},
     ], {
         duration: 500,
         fill: "forwards"
@@ -192,18 +192,17 @@ function storageAvailable(type) {
         storage.setItem(x, x)
         storage.removeItem(x)
         return true
-    }
-    catch(e) {
+    } catch (e) {
         return e instanceof DOMException && (
-            // everything except Firefox
-            e.code === 22 ||
-            // Firefox
-            e.code === 1014 ||
-            // test name field too, because code might not be present
-            // everything except Firefox
-            e.name === 'QuotaExceededError' ||
-            // Firefox
-            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+                // everything except Firefox
+                e.code === 22 ||
+                // Firefox
+                e.code === 1014 ||
+                // test name field too, because code might not be present
+                // everything except Firefox
+                e.name === 'QuotaExceededError' ||
+                // Firefox
+                e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
             // acknowledge QuotaExceededError only if there's something already stored
             (storage && storage.length !== 0)
     }
@@ -226,11 +225,11 @@ function generateUuid() {
 
 function getColor(seed) {
     const random = new Random(seed)
-    
+
     const r = random.nextInt(0, 255)
     const g = random.nextInt(0, 255)
     const b = random.nextInt(0, 255)
-    
+
     return `rgb(${r}, ${g}, ${b})`
 }
 
@@ -247,12 +246,12 @@ function getIconTint(backgroundColor) {
     }
 }
 
-String.prototype.hashCode = function(){
+String.prototype.hashCode = function () {
     let hash = 0
     for (let i = 0; i < this.length; i++) {
         hash = hash * 31 + this.charCodeAt(i)
         hash = hash | 0
     }
 
-    return hash; 
+    return hash;
 }

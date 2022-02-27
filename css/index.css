@@ -1,337 +1,331 @@
 body,
 .wrapper {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .wrapper {
-  position: fixed;
-  overflow: hidden;
+    position: fixed;
+    overflow: hidden;
 }
 
 a {
-  color: #57c4eb;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
+    color: #2491bb;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .item {
-  position: relative;
-  overflow: hidden;
-  text-align: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
 }
 
 .ripple,
 .img-item {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-repeat: no-repeat;
-  background-size: contain;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .ripple {
-  opacity: 0;
-  transform: scale(0);
-  border-radius: 100%;
-  background-color: #8aa4b0;
+    opacity: 0;
+    transform: scale(0);
+    border-radius: 100%;
+    background-color: #8aa4b0;
 }
 
 .ripple-on {
-  animation: ripple-on-anim 0.3s ease 0s 1;
-  animation-fill-mode: forwards;
+    animation: ripple-on-anim 0.3s ease 0s 1;
+    animation-fill-mode: forwards;
 }
 
 .ripple-off {
-  opacity: 0.4;
-  transform: scale(1);
-  animation: ripple-off-anim 0.3s ease 0s 1;
-  animation-fill-mode: forwards;
+    opacity: 0.4;
+    transform: scale(1);
+    animation: ripple-off-anim 0.3s ease 0s 1;
+    animation-fill-mode: forwards;
+}
+
+.footer {
+    background-color: #3ddc84;
 }
 
 @keyframes ripple-on-anim {
-  from {
-    opacity: 1;
-  }
+    from {
+        opacity: 1;
+    }
 
-  to {
-    opacity: 0.4;
-    transform: scale(1);
-  }
+    to {
+        opacity: 0.4;
+        transform: scale(1);
+    }
 }
 
 @keyframes ripple-off-anim {
-  to {
-    opacity: 0;
-  }
+    to {
+        opacity: 0;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #334246;
-  }
+    body {
+        background-color: #334246;
+    }
 
-  .footer-txt {
-    color: #334246;
-  }
+    #github {
+        background-image: url("../img/GitHub-bright.svg");
+    }
 
-  #github {
-    background-image: url("../img/GitHub-bright.svg");
-  }
+    #blog {
+        background-image: url("../img/blog-bright.svg");
+    }
 
-  #blog {
-    background-image: url("../img/blog-bright.svg");
-  }
-
-  #twitter {
-    background-image: url("../img/Twitter-bright.svg");
-  }
+    #twitter {
+        background-image: url("../img/Twitter-bright.svg");
+    }
 }
 
 @media (prefers-color-scheme: light) {
-  body {
-    background-color: #ffffff;
-  }
+    body {
+        background-color: #ffffff;
+    }
 
-  .footer-txt {
-    color: #ffffff;
-  }
+    #github {
+        background-image: url("../img/GitHub-dark.svg");
+    }
 
-  #github {
-    background-image: url("../img/GitHub-dark.svg");
-  }
+    #blog {
+        background-image: url("../img/blog-dark.svg");
+    }
 
-  #blog {
-    background-image: url("../img/blog-dark.svg");
-  }
-
-  #twitter {
-    background-image: url("../img/Twitter-dark.svg");
-  }
+    #twitter {
+        background-image: url("../img/Twitter-dark.svg");
+    }
 }
 
 @media (orientation: landscape) {
-  .droid {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    animation: droid-anim 0.4s ease 0.2s 1;
-    animation-fill-mode: forwards;
-  }
-
-  #change-bg-color {
-    width: 0;
-    height: 0;
-    position: absolute;
-    overflow: hidden;
-    bottom: 0.5em;
-    right: 0.5em;
-    border-radius: 20%;
-    animation: change-bg-anim 0.4s ease 0.2s 1;
-    animation-fill-mode: forwards;
-  }
-
-  .footer {
-    background-color: #3ddc84;
-    width: 100%;
-    height: 2em;
-    position: absolute;
-    top: 100%;
-    animation: footer-anim 0.4s ease 0.2s 1;
-    animation-fill-mode: forwards;
-  }
-
-  .footer-txt {
-    position: absolute;
-    bottom: 0.2em;
-    right: 0;
-    text-align: right;
-    margin: 0;
-    font-size: 0.5em;
-  }
-
-  .items {
-    position: absolute;
-    bottom: calc(2em + (40% - 2em) / 2);
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translate(0, 50%);
-  }
-
-  .item {
-    margin: 0 6vh;
-    width: 0;
-    height: 0;
-    animation: item-anim 0.4s ease 0.2s 1;
-    animation-fill-mode: forwards;
-  }
-
-  @keyframes droid-anim {
-    70% {
-      bottom: 2em;
+    .droid {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        animation: droid-anim 0.4s ease 0.2s 1;
+        animation-fill-mode: forwards;
     }
 
-    100% {
-      bottom: 40%;
-    }
-  }
-
-  @keyframes change-bg-anim {
-    70% {
-      bottom: 2.5em;
-      width: 0;
-      height: 0;
-    }
-
-    100% {
-      bottom: 2.5em;
-      width: 20px;
-      height: 20px;
-    }
-  }
-
-  @keyframes footer-anim {
-    70% {
-      top: calc(100% - 2em);
+    #change-bg-color {
+        width: 0;
+        height: 0;
+        position: absolute;
+        overflow: hidden;
+        bottom: 0.5em;
+        right: 0.5em;
+        border-radius: 20%;
+        animation: change-bg-anim 0.4s ease 0.2s 1;
+        animation-fill-mode: forwards;
     }
 
-    100% {
-      top: calc(100% - 2em);
-    }
-  }
-
-  @keyframes item-anim {
-    70% {
-      width: 0;
-      height: 0;
+    .footer {
+        width: 100%;
+        height: 2em;
+        position: absolute;
+        top: 100%;
+        animation: footer-anim 0.4s ease 0.2s 1;
+        animation-fill-mode: forwards;
     }
 
-    100% {
-      width: 14vh;
-      height: 14vh;
+    .footer-txt {
+        position: absolute;
+        bottom: 0.2em;
+        right: 0;
+        text-align: right;
+        margin: 0;
+        font-size: 0.5em;
     }
-  }
+
+    .items {
+        position: absolute;
+        bottom: calc(2em + (40% - 2em) / 2);
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(0, 50%);
+    }
+
+    .item {
+        margin: 0 6vh;
+        width: 0;
+        height: 0;
+        animation: item-anim 0.4s ease 0.2s 1;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes droid-anim {
+        70% {
+            bottom: 2em;
+        }
+
+        100% {
+            bottom: 40%;
+        }
+    }
+
+    @keyframes change-bg-anim {
+        70% {
+            bottom: 2.5em;
+            width: 0;
+            height: 0;
+        }
+
+        100% {
+            bottom: 2.5em;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    @keyframes footer-anim {
+        70% {
+            top: calc(100% - 2em);
+        }
+
+        100% {
+            top: calc(100% - 2em);
+        }
+    }
+
+    @keyframes item-anim {
+        70% {
+            width: 0;
+            height: 0;
+        }
+
+        100% {
+            width: 14vh;
+            height: 14vh;
+        }
+    }
 }
 
 @media (orientation: portrait) {
-  .droid {
-    margin: auto;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    animation: droid-anim 0.4s ease 0.2s 1;
-    animation-fill-mode: forwards;
-  }
-
-  #change-bg-color {
-    width: 0;
-    height: 0;
-    position: absolute;
-    overflow: hidden;
-    bottom: 0.5em;
-    right: 0.5em;
-    border-radius: 20%;
-    animation: change-bg-anim 0.4s ease 0.2s 1;
-    animation-fill-mode: forwards;
-  }
-
-  .footer {
-    background-color: #3ddc84;
-    width: 100%;
-    height: 35%;
-    position: absolute;
-    top: 100%;
-    animation: footer-anim 0.4s ease 0.2s 1;
-    animation-fill-mode: forwards;
-  }
-
-  .footer-txt {
-    position: absolute;
-    bottom: 0.2em;
-    right: 0;
-    text-align: right;
-    margin: 0;
-    font-size: 0.3em;
-  }
-
-  .items {
-    display: flex;
-    position: absolute;
-    bottom: 50%;
-    width: 100%;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    transform: translate(0, 50%);
-  }
-
-  .item {
-    margin: 0 3vw;
-    width: 0;
-    height: 0;
-    max-width: 24vh;
-    max-height: 24vh;
-    animation: item-anim 0.4s ease 0.2s 1;
-    animation-fill-mode: forwards;
-  }
-
-  @keyframes droid-anim {
-    90% {
-      bottom: 35%;
+    .droid {
+        margin: auto;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        animation: droid-anim 0.4s ease 0.2s 1;
+        animation-fill-mode: forwards;
     }
 
-    100% {
-      width: 160%;
-      left: -30%;
-      bottom: 65%;
-    }
-  }
-
-  @keyframes change-bg-anim {
-    70% {
-      bottom: calc(35% + 0.5em);
-      width: 0;
-      height: 0;
+    #change-bg-color {
+        width: 0;
+        height: 0;
+        position: absolute;
+        overflow: hidden;
+        bottom: 0.5em;
+        right: 0.5em;
+        border-radius: 20%;
+        animation: change-bg-anim 0.4s ease 0.2s 1;
+        animation-fill-mode: forwards;
     }
 
-    100% {
-      bottom: calc(35% + 0.5em);
-      width: 20px;
-      height: 20px;
-    }
-  }
-
-  @keyframes footer-anim {
-    90% {
-      top: 65%;
+    .footer {
+        width: 100%;
+        height: 35%;
+        position: absolute;
+        top: 100%;
+        animation: footer-anim 0.4s ease 0.2s 1;
+        animation-fill-mode: forwards;
     }
 
-    100% {
-      top: 65%;
-    }
-  }
-
-  @keyframes item-anim {
-    90% {
-      width: 0;
-      height: 0;
+    .footer-txt {
+        position: absolute;
+        bottom: 0.2em;
+        right: 0;
+        text-align: right;
+        margin: 0;
+        font-size: 0.3em;
     }
 
-    100% {
-      width: 16vw;
-      height: 16vw;
+    .items {
+        display: flex;
+        position: absolute;
+        bottom: 50%;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        transform: translate(0, 50%);
     }
-  }
+
+    .item {
+        margin: 0 3vw;
+        width: 0;
+        height: 0;
+        max-width: 24vh;
+        max-height: 24vh;
+        animation: item-anim 0.4s ease 0.2s 1;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes droid-anim {
+        90% {
+            bottom: 35%;
+        }
+
+        100% {
+            width: 160%;
+            left: -30%;
+            bottom: 65%;
+        }
+    }
+
+    @keyframes change-bg-anim {
+        70% {
+            bottom: calc(35% + 0.5em);
+            width: 0;
+            height: 0;
+        }
+
+        100% {
+            bottom: calc(35% + 0.5em);
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    @keyframes footer-anim {
+        90% {
+            top: 65%;
+        }
+
+        100% {
+            top: 65%;
+        }
+    }
+
+    @keyframes item-anim {
+        90% {
+            width: 0;
+            height: 0;
+        }
+
+        100% {
+            width: 16vw;
+            height: 16vw;
+        }
+    }
 }
