@@ -121,7 +121,7 @@ window.onload = function () {
 }
 
 function sendSignal(command) {
-    fetch("http://api.geckour.com:5775/0/light/signal", {
+    fetch("https://api.geckour.com:5775/0/light/signal", {
         method: "POST",
         mode: "no-cors",
         cache: "no-cache",
