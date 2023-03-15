@@ -87,6 +87,18 @@ window.onload = function () {
 
         const changeBgColorElem = document.getElementById("change-bg-color")
         changeBgColorElem.style.backgroundColor = color
+        changeBgColorElem.addEventListener('touchstart', function () {
+            sendSignal("1")
+        })
+        changeBgColorElem.addEventListener('pointerdown', function () {
+            sendSignal("1")
+        })
+        changeBgColorElem.addEventListener('touchend', function () {
+            sendSignal("0")
+        })
+        changeBgColorElem.addEventListener('pointerup', function () {
+            sendSignal("0")
+        })
         changeBgColorElem.onclick = function () {
             changeColors(document, color)
             const radius = Math.sqrt(Math.pow(changeBgColorElem.offsetLeft + 10, 2) + Math.pow(changeBgColorElem.offsetTop + 10, 2))
@@ -106,6 +118,19 @@ window.onload = function () {
             })
         }
     }
+}
+
+function sendSignal(command) {
+    fetch("http://api.geckour.com:5775/0/light/signal", {
+        method: "POST",
+        mode: "no-cors",
+        cache: "no-cache",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        redirect: 'follow',
+        body: `command=${command}`
+    })
 }
 
 function changeColors(document, color) {
