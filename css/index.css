@@ -94,6 +94,14 @@ a {
     #twitter {
         background-image: url("../img/Twitter-bright.svg");
     }
+
+    #bluesky {
+        background-image: url("../img/Bluesky-bright.svg");
+    }
+
+    #booth {
+        background-image: url("../img/Booth-bright.svg");
+    }
 }
 
 @media (prefers-color-scheme: light) {
@@ -111,6 +119,14 @@ a {
 
     #twitter {
         background-image: url("../img/Twitter-dark.svg");
+    }
+
+    #bluesky {
+        background-image: url("../img/Bluesky-dark.svg");
+    }
+
+    #booth {
+        background-image: url("../img/Booth-dark.svg");
     }
 }
 
@@ -165,7 +181,7 @@ a {
     }
 
     .item {
-        margin: 0 6vh;
+        margin: 0 3vh;
         width: 0;
         height: 0;
         animation: item-anim 0.4s ease 0.2s 1;
@@ -272,7 +288,7 @@ a {
     }
 
     .item {
-        margin: 0 3vw;
+        margin: 0 2vw;
         width: 0;
         height: 0;
         max-width: 24vh;
